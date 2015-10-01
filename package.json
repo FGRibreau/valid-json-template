@@ -1,0 +1,28 @@
+{
+  "name": "json-template",
+  "version": "0.0.0",
+  "description": "Use a (valid) JSON as a template that produce another valid JSON as a result",
+  "main": "./src",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FGRibreau/json-template.git"
+  },
+  "keywords": ["json", "template", "templating"],
+  "scripts": {
+    "test": "mocha src/*.test.js && npm run check-build",
+    "check-build": "check-build"
+  },
+  "author": "Francois-Guillaume Ribreau <npm@fgribreau.com> (http://fgribreau.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FGRibreau/json-template/issues"
+  },
+  "homepage": "https://github.com/FGRibreau/json-template",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^3.3.0",
+    "check-build": "^2.2.1",
+    "lodash": "^3.10.1",
+    "mocha": "^2.3.3"
+  }
+}
