@@ -12,7 +12,7 @@ Because sometimes you have a template like this **that needs to be a valid JSON*
 
 ```js
 var myTemplate = `{
-	"user": {
+  "user": {
     "age": "{{ age.computed }}",
     "biography": "{{ biography }}",
     "hasBlueEyes": "{{ eyes.areBlue }}",
