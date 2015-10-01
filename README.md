@@ -1,7 +1,7 @@
-**json-template**
+**valid-json-template**
 
-[![Deps](https://david-dm.org/FGRibreau/json-template.png)](https://david-dm.org/FGRibreau/json-template)
-[![Version](http://badge.fury.io/js/json-template.png)](https://david-dm.org/FGRibreau/json-template) [![Downloads](http://img.shields.io/npm/dm/json-template.svg)](https://www.npmjs.com/package/json-template)
+[![Deps](https://david-dm.org/FGRibreau/valid-json-template.png)](https://david-dm.org/FGRibreau/valid-json-template)
+[![Version](http://badge.fury.io/js/valid-json-template.png)](https://david-dm.org/FGRibreau/valid-json-template) [![Downloads](http://img.shields.io/npm/dm/valid-json-template.svg)](https://www.npmjs.com/package/valid-json-template)
 
 ### Why
 
@@ -48,7 +48,7 @@ and you want this:
 
 
 ```shell
-npm install json-template -S
+npm install valid-json-template -S
 ```
 
 

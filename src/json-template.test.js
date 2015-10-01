@@ -5,7 +5,7 @@ var jsonTemplate = require('./');
 
 //jscs:disable disallowQuotedKeysInObjects
 
-describe('json-template', function() {
+describe('valid-json-template', function() {
   var tmpl, data;
 
   beforeEach(function() {
