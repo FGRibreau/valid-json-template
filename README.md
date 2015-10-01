@@ -37,7 +37,7 @@ and you want this:
 
 ```json
 {
-	"user": {
+  "user": {
     "age": 25,
     "biography": "Hello world, 42.",
     "hasBlueEyes": true
