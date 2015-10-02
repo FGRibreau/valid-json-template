@@ -12,7 +12,7 @@ describe('valid-json-template', function() {
     tmpl = {
       'user': {
         'age': '{{ age.computed }}',
-        'biography': '{{ biography }}',
+        'biography': '{{biography}}',
         'hasBlueEyes': '{{ eyes.areBlue }}'
       }
     };
@@ -42,5 +42,21 @@ describe('valid-json-template', function() {
         'hasBlueEyes': true
       }
     });
+  });
+
+  it('should keep a missing tag in default mode', function() {
+    tmpl.user.name = '{{name}}';
+    t.deepEqual(JSON.parse(jsonTemplate(JSON.stringify(tmpl))(data)), {
+      'user': {
+        'age': 25,
+        'biography': 'Hello world, 42.',
+        'hasBlueEyes': true,
+        'name': '{{name}}'
+      }
+    });
+  });
+
+  it('should throw an error when a key is missing in strict mode', function() {
+    t.throw(jsonTemplate(JSON.stringify(tmpl), true).bind({}), /Missing key `\S+`/);
   });
 });
