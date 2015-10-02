@@ -1,13 +1,17 @@
 {
   "name": "valid-json-template",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Use a (valid) JSON as a template that produce another valid JSON as a result",
   "main": "./src",
   "repository": {
     "type": "git",
     "url": "https://github.com/FGRibreau/valid-json-template.git"
   },
-  "keywords": ["json", "template", "templating"],
+  "keywords": [
+    "json",
+    "template",
+    "templating"
+  ],
   "scripts": {
     "test": "mocha src/*.test.js && npm run check-build",
     "check-build": "check-build"
