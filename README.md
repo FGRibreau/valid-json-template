@@ -16,6 +16,7 @@ var myTemplate = `{
     "age": "{{ age.computed }}",
     "biography": "{{ biography }}",
     "hasBlueEyes": "{{ eyes.areBlue }}",
+    "annualSalary": "{{ 12 * monthlySalary }}"
   }
 }`;
 
@@ -31,7 +32,8 @@ with a dataset like this:
   },
   "eyes":{
     "areBlue": true
-  }
+  },
+  "monthlySalary": 1000
 }
 ```
 
@@ -42,7 +44,8 @@ and you want this:
   "user": {
     "age": 25,
     "biography": "Hello world, 42.",
-    "hasBlueEyes": true
+    "hasBlueEyes": true,
+    "annualSalary": 12000
   }
 }
 ```

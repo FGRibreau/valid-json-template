@@ -59,4 +59,17 @@ describe('valid-json-template', function() {
   it('should throw an error when a key is missing in strict mode', function() {
     t.throw(jsonTemplate(JSON.stringify(tmpl), true).bind({}), /Missing key `\S+`/);
   });
+
+  it('should use a coefficient when it exists', function() {
+    tmpl.user.money = '{{ -40.21 * money }}';
+    data.money = 2;
+    t.deepEqual(JSON.parse(jsonTemplate(JSON.stringify(tmpl))(data)), {
+      'user': {
+        'age': 25,
+        'biography': 'Hello world, 42.',
+        'hasBlueEyes': true,
+        'money': -80.42
+      }
+    });
+  });
 });

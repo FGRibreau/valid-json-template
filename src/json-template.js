@@ -8,13 +8,17 @@ var _ = require('lodash');
  * @return {function} function(data): string
  */
 module.exports = function(templateString, strictMode) {
-  var reg = /\"(\{\{([\s\S]+?)\}\})\"/g;
+  var reg = /\"(\{\{\s*(?:(-?\d+(?:\.\d+)?)\s*\*)?\s*([\S]+?)\s*\}\})\"/g;
   return function(data) {
-    return templateString.replace(reg, function(match, tag, key) {
+    return templateString.replace(reg, function(match, tag, coefficient, key) {
       var value = _.get(data, _.trim(key));
 
       if (_.isUndefined(value) && strictMode) {
         throw new Error('Missing key `' + _.trim(key) + '`');
+      }
+
+      if (coefficient && _.isNumber(value)) {
+        return coefficient * value;
       }
 
       return JSON.stringify(value || tag);
