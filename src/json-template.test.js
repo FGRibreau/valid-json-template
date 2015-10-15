@@ -57,6 +57,22 @@ describe('valid-json-template', function() {
   });
 
   it('should throw an error when a key is missing in strict mode', function() {
-    t.throw(jsonTemplate(JSON.stringify(tmpl), true).bind({}), /Missing key `\S+`/);
+    t.throw(jsonTemplate(JSON.stringify(tmpl), {strictMode: true}).bind({}), /Missing key `\S+`/);
+  });
+
+  it('should execute the mapper function if given', function() {
+    function f(key, vars, options) {
+      t.deepEqual(vars, data);
+      t.deepEqual(options, {mapper: f});
+      return key.trim() + ' test';
+    }
+
+    t.deepEqual(JSON.parse(jsonTemplate(JSON.stringify(tmpl), {mapper: f})(data)), {
+      'user': {
+        'age': 'age.computed test',
+        'biography': 'biography test',
+        'hasBlueEyes': 'eyes.areBlue test'
+      }
+    });
   });
 });
