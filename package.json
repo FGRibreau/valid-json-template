@@ -1,6 +1,6 @@
 {
   "name": "valid-json-template",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Use a (valid) JSON as a template that produce another valid JSON as a result",
   "main": "./src",
   "repository": {
