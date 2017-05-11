@@ -7,6 +7,7 @@ var _ = require('lodash');
  * @param  {string} templateString JSON template as a string
  * @param  {object} options
  *  strictMode: if true, throws an error if a key is missing
+ *  disallowEmpty: if true, throws an error if a value is empty
  *  mapper: function to execute on each tag
  * @return {function} function(data): string
  */
@@ -22,6 +23,10 @@ module.exports = function(templateString, options) {
 
       if (_.isUndefined(value) && options.strictMode) {
         throw new Error('Missing key `' + _.trim(key) + '`');
+      }
+
+      if (_.isEmpty(_.trim(value)) && options.disallowEmpty) {
+        throw new Error('Empty value for key `' + _.trim(key) + '`');
       }
 
       return JSON.stringify(value || tag);

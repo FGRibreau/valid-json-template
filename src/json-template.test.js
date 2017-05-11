@@ -56,6 +56,22 @@ describe('valid-json-template', function() {
     });
   });
 
+  it('should throw an error when a value is empty when empty values are disallowed', function() {
+    data.biography = '';
+    t.throw(jsonTemplate(JSON.stringify(tmpl), {disallowEmpty: true}).bind(data), /Empty value for key `\S+`/);
+  });
+
+  it('should not throw an error when a value is empty when empty values are not disallowed', function() {
+    data.biography = '';
+    t.deepEqual(JSON.parse(jsonTemplate(JSON.stringify(tmpl))(data)), {
+      'user': {
+        'age': 25,
+        'biography': '{{biography}}',
+        'hasBlueEyes': true
+      }
+    });
+  });
+
   it('should throw an error when a key is missing in strict mode', function() {
     t.throw(jsonTemplate(JSON.stringify(tmpl), {strictMode: true}).bind({}), /Missing key `\S+`/);
   });
